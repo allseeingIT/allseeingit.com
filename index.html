@@ -72,9 +72,9 @@ var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),bran
 W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
 var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
 var TXT=LINES.join("\n");
-// beat 1 timing: hold 'data' 3s, ease-in spin ~2.3s, accelerating to ~65ms/word
+// beat 1 timing: hold 'data' 3s; first 3 words 600ms, then linear ramp down to 220ms on the last word
 var HOLD=3000,SPIN=0,steps=[],s=0;
-for(var k=0;k<n-1;k++){var t=n>2?k/(n-2):1;var d=450-100*t;steps.push(d);SPIN+=d;}
+for(var k=0;k<n-1;k++){var L=3,d=k<L?600:600-380*(k-L+1)/(n-1-L);steps.push(d);SPIN+=d;}
 var FIN=HOLD+SPIN;
 var raf,timers=[],t0;
 function at(ms,f){timers.push(setTimeout(f,ms));}
