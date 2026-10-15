@@ -79,9 +79,9 @@ var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),bran
 W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
 var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
 var TXT=LINES.join("\n");
-// retime3: 6 words 1.0s, 3 words 0.75s, then 90->55ms; SAGE ~9.1s ( to SAGE): hold 'data' 1.2s; 3 words 400ms, then ease-in (t^1.3) ramp to 95ms; You do +0.3s; SAGE +0.6s
-var HOLD=910,DW=[0,910,910,910,910,910,660,660,660],SPIN=0,steps=[],s=0;
-for(var k=0;k<n-1;k++){var L=1,d=k<L?90:90-35*Math.pow((k-L+1)/(n-1-L),1.3);steps.push(d);SPIN+=d+(DW[k]||0);}
+// retime4: 6 words ~0.44s, 3 words ~0.28s, then 75->47ms; SAGE ~4.5s ( to SAGE): hold 'data' 1.2s; 3 words 400ms, then ease-in (t^1.3) ramp to 95ms; You do +0.3s; SAGE +0.6s
+var HOLD=360,DW=[0,360,360,360,360,360,210,210,210],SPIN=0,steps=[],s=0;
+for(var k=0;k<n-1;k++){var L=1,d=k<L?75:75-28*Math.pow((k-L+1)/(n-1-L),1.3);steps.push(d);SPIN+=d+(DW[k]||0);}
 var FIN=HOLD+SPIN;
 var raf,timers=[],t0;
 function at(ms,f){timers.push(setTimeout(f,ms));}
