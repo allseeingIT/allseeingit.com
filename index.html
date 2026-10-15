@@ -43,26 +43,12 @@ footer{text-align:center;padding:22px 20px;font-size:.85rem;border-top:1px solid
 footer a{color:#000}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-.halo{position:fixed;left:50%;top:46%;width:min(92vw,760px);aspect-ratio:1;transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:.9}
-.halo circle,.halo path{fill:none;stroke:#3c7a3c}
-.halo .r1{stroke-width:1.5;stroke-opacity:.35;stroke-dasharray:4 10}
-.halo .r2{stroke-width:1;stroke-opacity:.25}
-.halo .r3{stroke-width:2;stroke-opacity:.18;stroke-dasharray:60 30}
-.halo .arc{stroke-width:3;stroke-opacity:.55;stroke-linecap:square}
-.halo .spin{transform-origin:200px 200px;animation:rot 14s linear infinite}
-.halo .spin2{transform-origin:200px 200px;animation:rot 40s linear infinite reverse}
-.halo .sweep{transform-origin:200px 200px;animation:rot 5s linear infinite}
-@keyframes rot{to{transform:rotate(360deg)}}
-.halo .core{fill:#3c7a3c;fill-opacity:.12;stroke:none;transform-origin:200px 200px;animation:pulse 3s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(1.25);fill-opacity:.05}}
-#grid{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-h1{transition:transform .25s ease-out}
+#hero-logo-slot{width:0;height:0;overflow:hidden}
 </style>
 </head>
 <body>
-<svg class="halo" viewBox="0 0 400 400" aria-hidden="true"><circle class="core" cx="200" cy="200" r="60"/><g class="spin"><circle class="r1" cx="200" cy="200" r="190"/></g><circle class="r2" cx="200" cy="200" r="150"/><g class="spin2"><circle class="r3" cx="200" cy="200" r="115"/></g><g class="sweep"><path class="arc" d="M200 10 A190 190 0 0 1 364.5 105"/></g></svg>
-<canvas id="grid" aria-hidden="true"></canvas>
 <main>
+<div id="hero-logo-slot" aria-hidden="true"></div>
 <h1><span aria-hidden="true">Who controls your<span class="slot"><span class="reel" id="reel"></span></span></span><span class="sr">Who controls your future?</span></h1>
 <p class="do" id="do">You do.</p>
 <div class="stage">
@@ -80,16 +66,16 @@ h1{transition:transform .25s ease-out}
 <footer>© 2026 ALLSEEING RESEARCH SERVICES · <a href="mailto:research@allseeingit.com">research@allseeingit.com</a></footer>
 <script>
 (function(){
-var W=["data","future"];
+var W=["data","network","internet","software","cameras","sensors","drone","tractor","repairs","gates","fences","collars","cattle","pasture","water","soil","seeds","harvest","prices","power","land","food","future"];
 var n=W.length,$=function(i){return document.getElementById(i)};
 var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),brand=$('brand'),skip=$('skip'),rep=$('replay'),live=$('live');
 W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
 var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
 var TXT=LINES.join("\n");
 // beat 1 timing: hold 'data' 3s, ease-in spin ~2.3s, accelerating to ~65ms/word
-var HOLD=3000,SPIN=700,steps=[],s=0;
-for(var k=0;k<n-1;k++){var t=n>2?k/(n-2):1;var d=65+(420-65)*Math.pow(1-t,2.4);steps.push(d);s+=d;}
-steps=steps.map(function(d){return d*SPIN/s});
+var HOLD=3000,SPIN=0,steps=[],s=0;
+for(var k=0;k<n-1;k++){var t=n>2?k/(n-2):1;var d=450-100*t;steps.push(d);SPIN+=d;}
+var FIN=HOLD+SPIN;
 var raf,timers=[],t0;
 function at(ms,f){timers.push(setTimeout(f,ms));}
 function setReel(p,blur){reel.style.transform='translateY('+(-p*1.2)+'em)';reel.style.filter=blur?'blur('+blur.toFixed(2)+'px)':'none';}
@@ -99,8 +85,8 @@ function spin(ts){
  if(el>=SPIN){setReel(n-1,0);return;}
  var i=0;while(i<n-2&&el>=steps[i]){el-=steps[i];i++;}
  var f=Math.min(1,el/steps[i]);
- if(steps[i]>220)f=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;
- setReel(i+f,steps[i]<220?Math.min(2.5,(220-steps[i])/55):0);
+ f=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;
+ setReel(i+f,0);
  raf=requestAnimationFrame(spin);
 }
 function end(){
@@ -113,33 +99,12 @@ function play(){
  end();t0=0;setReel(0,0);doE.classList.remove('on');res.classList.remove('on');brand.classList.remove('on');
  pre.textContent='';skip.hidden=false;rep.hidden=true;live.textContent='';
  raf=requestAnimationFrame(spin);
- at(4200,function(){doE.classList.add('on');live.textContent='Who controls your future? You do.';});
- at(5200,function(){brand.classList.add('on');skip.hidden=true;});
- at(6400,function(){rep.hidden=false;pre.className='';live.textContent='SAGE by ALLSEEING RESEARCH SERVICES.';});
+ at(FIN+300,function(){doE.classList.add('on');live.textContent='Who controls your future? You do.';});
+ at(FIN+1200,function(){brand.classList.add('on');skip.hidden=true;});
+ at(FIN+2400,function(){rep.hidden=false;pre.className='';live.textContent='SAGE by ALLSEEING RESEARCH SERVICES.';});
 }
 skip.addEventListener('click',end);rep.addEventListener('click',play);
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){end();rep.hidden=true;}else play();
-})();
-</script>
-<script>
-(function(){
-var c=document.getElementById('grid'),x=c.getContext('2d'),h1=document.querySelector('h1');
-var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,w,h,dpr=Math.min(2,window.devicePixelRatio||1),mx=.5,my=.5;
-function size(){w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);}
-function draw(t){
- x.clearRect(0,0,w,h);var g=28,ox=(mx-.5)*12,oy=(my-.5)*12;
- for(var yy=g/2;yy<h;yy+=g)for(var xx=g/2;xx<w;xx+=g){
-  var v=rm?.5:.5+.5*Math.sin(t/1400+xx*.018+yy*.011);
-  x.fillStyle='rgba(60,122,60,'+(0.12+0.30*v*v).toFixed(3)+')';
-  x.fillRect(xx+ox,yy+oy,3,3);}
- if(!rm)requestAnimationFrame(draw);
-}
-size();addEventListener('resize',function(){size();if(rm)draw(0);});
-if(!rm&&matchMedia('(pointer:fine)').matches){
- addEventListener('mousemove',function(e){mx=e.clientX/w;my=e.clientY/h;
-  h1.style.transform='perspective(800px) rotateX('+((.5-my)*4).toFixed(2)+'deg) rotateY('+((mx-.5)*5).toFixed(2)+'deg)';});
-}
-rm?draw(0):requestAnimationFrame(draw);
 })();
 </script>
 </body>
