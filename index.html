@@ -72,9 +72,9 @@ var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),bran
 W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
 var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
 var TXT=LINES.join("\n");
-// beat 1 timing: hold 'data' 3s; first 3 words 600ms, then linear ramp down to 220ms on the last word
-var HOLD=3000,SPIN=0,steps=[],s=0;
-for(var k=0;k<n-1;k++){var L=3,d=k<L?600:600-380*(k-L+1)/(n-1-L);steps.push(d);SPIN+=d;}
+// beat 1 timing (~6s to SAGE): hold 'data' 1s; first 3 words 250ms, linear ramp to 130ms; You do +0.3s; SAGE +0.7s
+var HOLD=1000,SPIN=0,steps=[],s=0;
+for(var k=0;k<n-1;k++){var L=3,d=k<L?250:250-120*(k-L+1)/(n-1-L);steps.push(d);SPIN+=d;}
 var FIN=HOLD+SPIN;
 var raf,timers=[],t0;
 function at(ms,f){timers.push(setTimeout(f,ms));}
@@ -100,8 +100,8 @@ function play(){
  pre.textContent='';skip.hidden=false;rep.hidden=true;live.textContent='';
  raf=requestAnimationFrame(spin);
  at(FIN+300,function(){doE.classList.add('on');live.textContent='Who controls your future? You do.';});
- at(FIN+1200,function(){brand.classList.add('on');skip.hidden=true;});
- at(FIN+2400,function(){rep.hidden=false;pre.className='';live.textContent='SAGE by ALLSEEING RESEARCH SERVICES.';});
+ at(FIN+700,function(){brand.classList.add('on');skip.hidden=true;});
+ at(FIN+1500,function(){rep.hidden=false;pre.className='';live.textContent='SAGE by ALLSEEING RESEARCH SERVICES.';});
 }
 skip.addEventListener('click',end);rep.addEventListener('click',play);
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){end();rep.hidden=true;}else play();
