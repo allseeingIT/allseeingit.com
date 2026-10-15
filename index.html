@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who controls your future? | SAGE by ALLSEEING RESEARCH SERVICES</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Who controls your future? You do. SAGE is open farm software from ALLSEEING RESEARCH SERVICES.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#000;min-height:100vh;display:flex;flex-direction:column}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px}
+h1{font-size:clamp(2.1rem,9vw,4.5rem);line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.slot{display:block;height:1.2em;overflow:hidden;position:relative}
+.reel{display:block;will-change:transform}
+.reel span{display:block;height:1.2em;line-height:1.2em;white-space:nowrap}
+.slot::before,.slot::after{content:"";position:absolute;left:0;right:0;height:.18em;z-index:1;pointer-events:none}
+.slot::before{top:0;background:linear-gradient(#fff,rgba(255,255,255,0))}
+.slot::after{bottom:0;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.do{margin-top:18px;font-size:clamp(2.4rem,11vw,5rem);font-weight:900;line-height:1.1;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+.do.on{opacity:1;transform:none}
+.stage{position:relative;width:100%;max-width:560px;height:250px;margin-top:24px}
+.code,.brand{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity .6s,filter .9s,transform .9s}
+.code{opacity:0}
+.code.on{opacity:1}
+pre{font-family:"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;font-size:clamp(.82rem,3.6vw,1rem);line-height:1.6;text-align:left;white-space:pre;min-width:16em;min-height:8em}
+.cur::after{content:"\2588";animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.resolve{margin-top:12px;font-weight:700;font-size:clamp(1.05rem,4.5vw,1.3rem);opacity:0;transition:opacity .4s}
+.resolve.on{opacity:1}
+.brand{opacity:0;filter:blur(10px);transform:scale(.96);pointer-events:none}
+.brand.on{opacity:1;filter:none;transform:none;pointer-events:auto}
+.sage{font-size:clamp(3.5rem,18vw,6.5rem);font-weight:900;letter-spacing:.04em;line-height:1}
+.by{margin-top:8px;font-size:clamp(.85rem,3.6vw,1rem);letter-spacing:.06em}
+.btn{display:inline-block;margin-top:22px;background:#000;color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:16px 38px;border-radius:0}
+.btn:hover,.btn:focus-visible{background:#333}
+a:focus-visible,button:focus-visible{outline:3px solid #000;outline-offset:3px}
+.ctl{margin-top:14px;height:1.4em}
+.ctl button{font:inherit;font-size:.85rem;color:#555;background:none;border:0;text-decoration:underline;cursor:pointer}
+.about{margin-top:12px;font-size:.95rem;color:#000}
+footer{text-align:center;padding:22px 20px;font-size:.85rem;border-top:1px solid #000}
+footer a{color:#000}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main>
+<h1><span aria-hidden="true">Who controls your<span class="slot"><span class="reel" id="reel"></span></span></span><span class="sr">Who controls your future?</span></h1>
+<p class="do" id="do">You do.</p>
+<div class="stage">
+ <div class="code" id="code" aria-hidden="true"><pre id="pre"></pre><p class="resolve" id="resolve">Open source. Farmer owned.</p></div>
+ <div class="brand" id="brand">
+  <p class="sage">SAGE</p>
+  <p class="by">by ALLSEEING RESEARCH SERVICES</p>
+  <a class="btn" href="https://research.allseeingit.com/">Open SAGE</a>
+ </div>
+</div>
+<div class="ctl"><button type="button" id="skip">skip</button><button type="button" id="replay" hidden>replay</button></div>
+<a class="about" href="about.html">About ALLSEEING RESEARCH SERVICES</a>
+<p class="sr" aria-live="polite" id="live"></p>
+</main>
+<footer>© 2026 ALLSEEING RESEARCH SERVICES · <a href="mailto:research@allseeingit.com">research@allseeingit.com</a></footer>
+<script>
+(function(){
+var W=["data","network","internet","software","cameras","sensors","drone","tractor","repairs","gates","fences","collars","cattle","pasture","water","soil","seeds","harvest","prices","power","land","food","future"];
+var n=W.length,$=function(i){return document.getElementById(i)};
+var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),brand=$('brand'),skip=$('skip'),rep=$('replay'),live=$('live');
+W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
+var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
+var TXT=LINES.join("\n");
+// beat 1 timing: hold 'data' 1.6s, ease-in spin ~2.3s, accelerating to ~65ms/word
+var HOLD=1600,SPIN=2300,steps=[],s=0;
+for(var k=0;k<n-1;k++){var t=k/(n-2);var d=65+(420-65)*Math.pow(1-t,2.4);steps.push(d);s+=d;}
+steps=steps.map(function(d){return d*SPIN/s});
+var raf,timers=[],t0;
+function at(ms,f){timers.push(setTimeout(f,ms));}
+function setReel(p,blur){reel.style.transform='translateY('+(-p*1.2)+'em)';reel.style.filter=blur?'blur('+blur.toFixed(2)+'px)':'none';}
+function spin(ts){
+ if(!t0)t0=ts;var el=ts-t0-HOLD;
+ if(el<0){raf=requestAnimationFrame(spin);return;}
+ if(el>=SPIN){setReel(n-1,0);return;}
+ var i=0;while(i<n-2&&el>=steps[i]){el-=steps[i];i++;}
+ var f=Math.min(1,el/steps[i]);
+ if(steps[i]>220)f=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;
+ setReel(i+f,steps[i]<220?Math.min(2.5,(220-steps[i])/55):0);
+ raf=requestAnimationFrame(spin);
+}
+function end(){
+ cancelAnimationFrame(raf);timers.forEach(clearTimeout);timers=[];
+ setReel(n-1,0);doE.classList.add('on');code.classList.remove('on');pre.className='';
+ pre.textContent=TXT;res.classList.add('on');brand.classList.add('on');
+ skip.hidden=true;rep.hidden=false;live.textContent='You do. SAGE by ALLSEEING RESEARCH SERVICES.';
+}
+function play(){
+ end();t0=0;setReel(0,0);doE.classList.remove('on');res.classList.remove('on');brand.classList.remove('on');
+ pre.textContent='';skip.hidden=false;rep.hidden=true;live.textContent='';
+ raf=requestAnimationFrame(spin);
+ at(4500,function(){doE.classList.add('on');live.textContent='Who controls your future? You do.';});
+ at(5000,function(){code.classList.add('on');pre.className='cur';
+   var c=0,per=2300/TXT.length;(function ty(){pre.textContent=TXT.slice(0,++c);if(c<TXT.length)at(per,ty);else res.classList.add('on');})();});
+ at(8000,function(){code.classList.remove('on');brand.classList.add('on');skip.hidden=true;});
+ at(9600,function(){rep.hidden=false;pre.className='';live.textContent='Open source. Farmer owned. SAGE by ALLSEEING RESEARCH SERVICES.';});
+}
+skip.addEventListener('click',end);rep.addEventListener('click',play);
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){end();rep.hidden=true;}else play();
+})();
+</script>
+</body>
+</html>
