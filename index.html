@@ -79,9 +79,9 @@ var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),bran
 W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
 var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
 var TXT=LINES.join("\n");
-// redesign timing (~4.7s to SAGE): hold 'data' 1.2s; 3 words 400ms, then ease-in (t^1.3) ramp to 95ms; You do +0.3s; SAGE +0.6s
-var HOLD=600,SPIN=0,steps=[],s=0;
-for(var k=0;k<n-1;k++){var L=3,d=k<L?220:220-155*Math.pow((k-L+1)/(n-1-L),1.3);steps.push(d);SPIN+=d;}
+// retime: data 1.0s, network 1.0s, 100->60ms; SAGE ~4.5s ( to SAGE): hold 'data' 1.2s; 3 words 400ms, then ease-in (t^1.3) ramp to 95ms; You do +0.3s; SAGE +0.6s
+var HOLD=1000,DW=[0,1000],SPIN=0,steps=[],s=0;
+for(var k=0;k<n-1;k++){var L=1,d=k<L?100:100-40*Math.pow((k-L+1)/(n-1-L),1.3);steps.push(d);SPIN+=d+(DW[k]||0);}
 var FIN=HOLD+SPIN;
 var raf,timers=[],t0;
 function at(ms,f){timers.push(setTimeout(f,ms));}
@@ -90,8 +90,8 @@ function spin(ts){
  if(!t0)t0=ts;var el=ts-t0-HOLD;
  if(el<0){raf=requestAnimationFrame(spin);return;}
  if(el>=SPIN){setReel(n-1,0);reel.lastChild.classList.add('glow');return;}
- var i=0;while(i<n-2&&el>=steps[i]){el-=steps[i];i++;}
- var f=Math.min(1,el/steps[i]);
+ var i=0;while(i<n-2&&el>=steps[i]+(DW[i]||0)){el-=steps[i]+(DW[i]||0);i++;}
+ var f=Math.max(0,Math.min(1,(el-(DW[i]||0))/steps[i]));
  f=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;
  setReel(i+f,Math.min(2.2,Math.max(0,(160-steps[i])/40))*Math.sin(Math.PI*f));
  raf=requestAnimationFrame(spin);
