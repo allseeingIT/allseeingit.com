@@ -10,7 +10,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#000;min-height:100vh;display:flex;flex-direction:column}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px}
+main{flex:1;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px}
 h1{font-size:clamp(2.1rem,9vw,4.5rem);line-height:1.1;font-weight:700;letter-spacing:-.02em}
 .slot{display:block;height:1.2em;overflow:hidden;position:relative}
 .reel{display:block;will-change:transform}
@@ -43,9 +43,12 @@ footer{text-align:center;padding:22px 20px;font-size:.85rem;border-top:1px solid
 footer a{color:#000}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+#grid{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+h1{transition:transform .25s ease-out}
 </style>
 </head>
 <body>
+<canvas id="grid" aria-hidden="true"></canvas>
 <main>
 <h1><span aria-hidden="true">Who controls your<span class="slot"><span class="reel" id="reel"></span></span></span><span class="sr">Who controls your future?</span></h1>
 <p class="do" id="do">You do.</p>
@@ -54,7 +57,7 @@ footer a{color:#000}
  <div class="brand" id="brand">
   <p class="sage">SAGE</p>
   <p class="by">by ALLSEEING RESEARCH SERVICES</p>
-  <a class="btn" href="https://research.allseeingit.com/">Open SAGE</a>
+  <a class="btn" href="https://research.allseeingit.com/" rel="noopener">Open SAGE</a>
  </div>
 </div>
 <div class="ctl"><button type="button" id="skip">skip</button><button type="button" id="replay" hidden>replay</button></div>
@@ -64,15 +67,15 @@ footer a{color:#000}
 <footer>© 2026 ALLSEEING RESEARCH SERVICES · <a href="mailto:research@allseeingit.com">research@allseeingit.com</a></footer>
 <script>
 (function(){
-var W=["data","network","internet","software","cameras","sensors","drone","tractor","repairs","gates","fences","collars","cattle","pasture","water","soil","seeds","harvest","prices","power","land","food","future"];
+var W=["data","future"];
 var n=W.length,$=function(i){return document.getElementById(i)};
 var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),brand=$('brand'),skip=$('skip'),rep=$('replay'),live=$('live');
 W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
 var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
 var TXT=LINES.join("\n");
-// beat 1 timing: hold 'data' 1.6s, ease-in spin ~2.3s, accelerating to ~65ms/word
-var HOLD=1600,SPIN=2300,steps=[],s=0;
-for(var k=0;k<n-1;k++){var t=k/(n-2);var d=65+(420-65)*Math.pow(1-t,2.4);steps.push(d);s+=d;}
+// beat 1 timing: hold 'data' 3s, ease-in spin ~2.3s, accelerating to ~65ms/word
+var HOLD=3000,SPIN=700,steps=[],s=0;
+for(var k=0;k<n-1;k++){var t=n>2?k/(n-2):1;var d=65+(420-65)*Math.pow(1-t,2.4);steps.push(d);s+=d;}
 steps=steps.map(function(d){return d*SPIN/s});
 var raf,timers=[],t0;
 function at(ms,f){timers.push(setTimeout(f,ms));}
@@ -97,14 +100,33 @@ function play(){
  end();t0=0;setReel(0,0);doE.classList.remove('on');res.classList.remove('on');brand.classList.remove('on');
  pre.textContent='';skip.hidden=false;rep.hidden=true;live.textContent='';
  raf=requestAnimationFrame(spin);
- at(4500,function(){doE.classList.add('on');live.textContent='Who controls your future? You do.';});
- at(5000,function(){code.classList.add('on');pre.className='cur';
-   var c=0,per=2300/TXT.length;(function ty(){pre.textContent=TXT.slice(0,++c);if(c<TXT.length)at(per,ty);else res.classList.add('on');})();});
- at(8000,function(){code.classList.remove('on');brand.classList.add('on');skip.hidden=true;});
- at(9600,function(){rep.hidden=false;pre.className='';live.textContent='Open source. Farmer owned. SAGE by ALLSEEING RESEARCH SERVICES.';});
+ at(4200,function(){doE.classList.add('on');live.textContent='Who controls your future? You do.';});
+ at(5200,function(){brand.classList.add('on');skip.hidden=true;});
+ at(6400,function(){rep.hidden=false;pre.className='';live.textContent='SAGE by ALLSEEING RESEARCH SERVICES.';});
 }
 skip.addEventListener('click',end);rep.addEventListener('click',play);
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){end();rep.hidden=true;}else play();
+})();
+</script>
+<script>
+(function(){
+var c=document.getElementById('grid'),x=c.getContext('2d'),h1=document.querySelector('h1');
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,w,h,dpr=Math.min(2,window.devicePixelRatio||1),mx=.5,my=.5;
+function size(){w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;x.setTransform(dpr,0,0,dpr,0,0);}
+function draw(t){
+ x.clearRect(0,0,w,h);var g=28,ox=(mx-.5)*12,oy=(my-.5)*12;
+ for(var yy=g/2;yy<h;yy+=g)for(var xx=g/2;xx<w;xx+=g){
+  var v=rm?.5:.5+.5*Math.sin(t/1400+xx*.018+yy*.011);
+  x.fillStyle='rgba(60,122,60,'+(0.06+0.16*v*v).toFixed(3)+')';
+  x.fillRect(xx+ox,yy+oy,2,2);}
+ if(!rm)requestAnimationFrame(draw);
+}
+size();addEventListener('resize',function(){size();if(rm)draw(0);});
+if(!rm&&matchMedia('(pointer:fine)').matches){
+ addEventListener('mousemove',function(e){mx=e.clientX/w;my=e.clientY/h;
+  h1.style.transform='perspective(800px) rotateX('+((.5-my)*4).toFixed(2)+'deg) rotateY('+((mx-.5)*5).toFixed(2)+'deg)';});
+}
+rm?draw(0):requestAnimationFrame(draw);
 })();
 </script>
 </body>
