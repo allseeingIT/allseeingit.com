@@ -43,11 +43,24 @@ footer{text-align:center;padding:22px 20px;font-size:.85rem;border-top:1px solid
 footer a{color:#000}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.halo{position:fixed;left:50%;top:46%;width:min(92vw,760px);aspect-ratio:1;transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:.9}
+.halo circle,.halo path{fill:none;stroke:#3c7a3c}
+.halo .r1{stroke-width:1.5;stroke-opacity:.35;stroke-dasharray:4 10}
+.halo .r2{stroke-width:1;stroke-opacity:.25}
+.halo .r3{stroke-width:2;stroke-opacity:.18;stroke-dasharray:60 30}
+.halo .arc{stroke-width:3;stroke-opacity:.55;stroke-linecap:square}
+.halo .spin{transform-origin:200px 200px;animation:rot 14s linear infinite}
+.halo .spin2{transform-origin:200px 200px;animation:rot 40s linear infinite reverse}
+.halo .sweep{transform-origin:200px 200px;animation:rot 5s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.halo .core{fill:#3c7a3c;fill-opacity:.12;stroke:none;transform-origin:200px 200px;animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.25);fill-opacity:.05}}
 #grid{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 h1{transition:transform .25s ease-out}
 </style>
 </head>
 <body>
+<svg class="halo" viewBox="0 0 400 400" aria-hidden="true"><circle class="core" cx="200" cy="200" r="60"/><g class="spin"><circle class="r1" cx="200" cy="200" r="190"/></g><circle class="r2" cx="200" cy="200" r="150"/><g class="spin2"><circle class="r3" cx="200" cy="200" r="115"/></g><g class="sweep"><path class="arc" d="M200 10 A190 190 0 0 1 364.5 105"/></g></svg>
 <canvas id="grid" aria-hidden="true"></canvas>
 <main>
 <h1><span aria-hidden="true">Who controls your<span class="slot"><span class="reel" id="reel"></span></span></span><span class="sr">Who controls your future?</span></h1>
@@ -117,8 +130,8 @@ function draw(t){
  x.clearRect(0,0,w,h);var g=28,ox=(mx-.5)*12,oy=(my-.5)*12;
  for(var yy=g/2;yy<h;yy+=g)for(var xx=g/2;xx<w;xx+=g){
   var v=rm?.5:.5+.5*Math.sin(t/1400+xx*.018+yy*.011);
-  x.fillStyle='rgba(60,122,60,'+(0.06+0.16*v*v).toFixed(3)+')';
-  x.fillRect(xx+ox,yy+oy,2,2);}
+  x.fillStyle='rgba(60,122,60,'+(0.12+0.30*v*v).toFixed(3)+')';
+  x.fillRect(xx+ox,yy+oy,3,3);}
  if(!rm)requestAnimationFrame(draw);
 }
 size();addEventListener('resize',function(){size();if(rm)draw(0);});
