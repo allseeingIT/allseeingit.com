@@ -1,0 +1,14 @@
+# No farm data in this repo. GitHub is for code only.
+data/
+uploads/
+nofence/
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+*.geojson
+*.kml
+*.gpx
+*collar*export*
+*paddock*export*
+.env

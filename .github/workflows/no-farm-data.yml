@@ -1,0 +1,11 @@
+name: no-farm-data
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Block farm data files
+        run: |
+          bad=$(git ls-files | grep -iE '\.(csv|db|sqlite3?|geojson|kml|gpx)$|(^|/)(data|uploads|nofence)/|collar.*export|paddock.*export' || true)
+          if [ -n "$bad" ]; then echo "Farm data files not allowed:"; echo "$bad"; exit 1; fi
