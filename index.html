@@ -15,8 +15,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#000;min-height:100vh;display:flex;flex-direction:column}
-header{padding:16px 20px;text-align:center;border-bottom:1px solid #000}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 20px;padding:16px 20px;border-bottom:1px solid #000}
 .logo{color:#000;font-weight:800;letter-spacing:.14em;text-decoration:none;font-size:15px}
+.signup{color:#000;font-size:.95rem;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:390px){header{flex-direction:column;align-items:center;text-align:center}}
 main{flex:1;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;justify-content:safe center;align-items:center;text-align:center;padding:40px 20px}
 h1{font-size:clamp(2.1rem,9vw,4.5rem);line-height:1.1;font-weight:700;letter-spacing:-.02em}
 .slot{display:block;height:1.2em;overflow:hidden;position:relative}
@@ -61,7 +63,7 @@ footer a{color:#000}
 </style>
 </head>
 <body>
-<header><a class="logo" href="index.html">ALLSEEING IT</a></header>
+<header><a class="logo" href="index.html">ALLSEEING IT</a><a class="signup" href="https://research.allseeingit.com/daily/" rel="noopener">Sign up for ALLSEEING Daily</a></header>
 <main>
 <div id="hero-logo-slot" aria-hidden="true"></div>
 <h1><span aria-hidden="true">Who controls your<span class="slot"><span class="reel" id="reel"></span></span></span><span class="sr">Who controls your future?</span></h1>
