@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#14261a"/><text x="32" y="47" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="bold" fill="#5aa65a" text-anchor="middle">S</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="169.52 -82.98 660.96 660.96">
+<style>.i{fill:#141a15}.p{fill:#3c7a3c}@media (prefers-color-scheme:dark){.i{fill:#f3f7f2}.p{fill:#8fcf8f}}</style>
+<path d="M482.68,-10 L196.89,485 A20,20 0 0 0 214.21,515 L785.79,515 A20,20 0 0 0 803.11,485 L517.32,-10 A20,20 0 0 0 482.68,-10 Z M335,378 C427.4,255.33 572.6,255.33 665,378 C572.6,500.67 427.4,500.67 335,378 Z" class="i" fill-rule="evenodd"/>
+<path d="M444,378 A56,56 0 1 0 556,378 A56,56 0 1 0 444,378 Z" class="p"/>
+</svg>
