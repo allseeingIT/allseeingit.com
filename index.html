@@ -3,126 +3,225 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ALLSEEING IT</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="description" content="Who controls your future? You do. ALLSEEING IT. SAGE is open farm software from ALLSEEING RESEARCH SERVICES.">
+<title>About ALLSEEING IT | Rural IT, Wi-Fi and Farm Tech, Sedalia MO</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="ALLSEEING IT: farm and rural Wi-Fi, cabling, IT support, Grok Bot setup, sensors, weather stations and drone mapping for Sedalia, Pettis County and Johnson County, Missouri. $250 minimum job.">
 <meta property="og:site_name" content="ALLSEEING IT">
-<meta property="og:title" content="ALLSEEING IT">
-<meta property="og:description" content="Who controls your future? You do. ALLSEEING IT. SAGE is open farm software from ALLSEEING RESEARCH SERVICES.">
+<meta property="og:title" content="About ALLSEEING IT | Rural IT, Wi-Fi and Farm Tech, Sedalia MO">
+<meta property="og:description" content="ALLSEEING IT: farm and rural Wi-Fi, cabling, IT support, Grok Bot setup, sensors, weather stations and drone mapping for Sedalia, Pettis County and Johnson County, Missouri. $250 minimum job.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.allseeingit.com/">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#000;min-height:100vh;display:flex;flex-direction:column}
-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 20px;padding:16px 20px;border-bottom:1px solid #000}
-.logo{color:#000;font-weight:800;letter-spacing:.14em;text-decoration:none;font-size:15px}
-.signup{color:#000;font-size:.95rem;text-decoration:underline;text-underline-offset:3px}
-@media (max-width:390px){header{flex-direction:column;align-items:center;text-align:center}}
-main{flex:1;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;justify-content:safe center;align-items:center;text-align:center;padding:40px 20px}
-h1{font-size:clamp(2.1rem,9vw,4.5rem);line-height:1.1;font-weight:700;letter-spacing:-.02em}
-.slot{display:block;height:1.2em;overflow:hidden;position:relative}
-.reel{display:block;will-change:transform}
-.reel span{display:block;height:1.2em;line-height:1.2em;white-space:nowrap}
-.slot::before,.slot::after{content:"";position:absolute;left:0;right:0;height:.18em;z-index:1;pointer-events:none}
-.slot::before{top:0;background:linear-gradient(#fff,rgba(255,255,255,0))}
-.slot::after{bottom:0;background:linear-gradient(rgba(255,255,255,0),#fff)}
-.do{margin-top:18px;font-size:clamp(2.4rem,11vw,5rem);font-weight:900;line-height:1.1;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
-.do.on{opacity:1;transform:none}
-.stage{position:relative;width:100%;max-width:560px;height:250px;margin-top:24px}
-.code,.brand{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity .6s,filter .9s,transform .9s}
-.code{opacity:0}
-.code.on{opacity:1}
-pre{font-family:"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;font-size:clamp(.82rem,3.6vw,1rem);line-height:1.6;text-align:left;white-space:pre;min-width:16em;min-height:8em}
-.cur::after{content:"\2588";animation:b 1s steps(1) infinite}
-@keyframes b{50%{opacity:0}}
-.resolve{margin-top:12px;font-weight:700;font-size:clamp(1.05rem,4.5vw,1.3rem);opacity:0;transition:opacity .4s}
-.resolve.on{opacity:1}
-.brand{opacity:0;filter:blur(10px);transform:scale(.96);pointer-events:none}
-.brand.on{opacity:1;filter:none;transform:none;pointer-events:auto}
-.sage{font-size:clamp(3.5rem,18vw,6.5rem);font-weight:900;letter-spacing:.04em;line-height:1}
-.by{margin-top:8px;font-size:clamp(.85rem,3.6vw,1rem);letter-spacing:.06em}
-.btn{display:inline-block;margin-top:22px;background:#000;color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:16px 38px;border-radius:0}
-.btn:hover,.btn:focus-visible{background:#333}
-a:focus-visible,button:focus-visible{outline:3px solid #000;outline-offset:3px}
-.ctl{margin-top:14px;height:1.4em}
-.ctl button{font:inherit;font-size:.85rem;color:#555;background:none;border:0;text-decoration:underline;cursor:pointer}
-.about{margin-top:12px;font-size:.95rem;color:#000}
-footer{text-align:center;padding:22px 20px;font-size:.85rem;border-top:1px solid #000}
-footer a{color:#000}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-#hero-logo-slot{width:0;height:0;overflow:hidden}
-.reel span.glow{background:linear-gradient(90deg,#000 0%,#000 35%,#2e7d32 50%,#000 65%,#000 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sweep 1s ease-out forwards}
-@keyframes sweep{from{background-position:100% 0}to{background-position:0 0}}
-.sage{background:linear-gradient(100deg,#000 40%,#9be7a0 50%,#000 60%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.5em;transform:scale(1.25);transition:letter-spacing .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
-.brand.on .sage{letter-spacing:.04em;transform:none;animation:sweep2 1.2s .5s ease-out both}
-@keyframes sweep2{from{background-position:100% 0}to{background-position:0 0}}
-.do.on{text-shadow:0 6px 24px rgba(46,125,50,.25)}
-@media (prefers-reduced-motion:reduce){.sage{letter-spacing:.04em;transform:none;color:#000;background:none}.reel span.glow{color:#000;background:none}}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;color:#141a15;background:#fff;line-height:1.6;font-size:17px;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid #e4e8e4}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:12px;padding-bottom:12px}
+.logo{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;line-height:1.3}
+.logo span{color:#3c7a3c}
+.hcta{font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;border-bottom:2px solid #3c7a3c;padding-bottom:2px}
+.hero{background:#0f1d13;color:#fff;padding:72px 0 64px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(120,190,120,.22) 1px,transparent 1.2px);background-size:26px 26px;mask-image:linear-gradient(180deg,transparent,#000 40%,#000 70%,transparent)}
+.hero .wrap{position:relative}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#8fcf8f}
+.hero h1{font-size:clamp(2.1rem,8.6vw,4.4rem);line-height:1.06;letter-spacing:-.025em;margin:14px 0 18px;max-width:16ch}
+.hero h1 em{font-style:normal;color:#8fcf8f}
+.hero p.lead{font-size:clamp(1.08rem,4.4vw,1.4rem);color:#cfe1cf;max-width:36ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;background:#5aa65a;color:#08130b;font-weight:800;text-decoration:none;padding:15px 24px;font-size:16px}
+.btn.line{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #5aa65a}
+.btn.ink{background:#0f1d13;color:#fff}
+.btn.ink.line{color:#0f1d13;background:transparent}
+.note{margin-top:18px;font-size:14px;color:#9fbf9f}
+.signup{display:block;margin-top:14px;color:#8fcf8f;font-size:15px;text-decoration:underline;text-underline-offset:3px}
+section{padding:64px 0;border-bottom:1px solid #e4e8e4}
+.k{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#3c7a3c;margin-bottom:10px}
+h2{font-size:clamp(1.7rem,6.4vw,2.8rem);line-height:1.12;letter-spacing:-.02em;max-width:22ch}
+section p.sub{margin-top:14px;font-size:1.08rem;color:#3d473f;max-width:60ch}
+.problems{display:grid;gap:0;margin-top:30px;border-top:2px solid #141a15}
+.problems div{padding:20px 0;border-bottom:1px solid #dfe5df}
+.problems b{display:block;font-size:1.15rem;margin-bottom:4px}
+.problems span{color:#4a544c}
+.minimum{background:#f3f7f2}
+.minimum .big{font-size:clamp(3.4rem,17vw,6.5rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#2f6a2f;margin:6px 0 10px}
+.cats{display:grid;gap:44px;margin-top:40px}
+.cat{border-top:4px solid #3c7a3c;padding-top:18px}
+.cat h3{font-size:1.35rem;line-height:1.25}
+.cat .benefit{margin-top:6px;color:#3d473f}
+.cat ul{list-style:none;margin-top:14px}
+.cat li{padding:9px 0 9px 20px;border-top:1px solid #e4e8e4;position:relative;font-size:16px}
+.cat li:before{content:"";position:absolute;left:0;top:19px;width:8px;height:2px;background:#3c7a3c}
+.cat small{display:block;margin-top:10px;font-size:13px;color:#6a736b}
+.local{background:#0f1d13;color:#e8f1e8}
+.local h2{color:#fff}
+.local p.sub{color:#c3d6c3}
+.facts{display:grid;gap:22px;margin-top:30px}
+.facts div{border-left:3px solid #5aa65a;padding-left:16px}
+.facts b{display:block;color:#fff;font-size:1.05rem}
+.steps{counter-reset:s;display:grid;gap:22px;margin-top:30px}
+.steps div{counter-increment:s;padding-top:14px;border-top:1px solid #cfd8cf}
+.steps div:before{content:"0" counter(s);display:block;font-weight:900;font-size:1.6rem;color:#3c7a3c;line-height:1;margin-bottom:8px}
+.steps b{display:block;font-size:1.1rem}
+.sage figure{margin-top:28px;background:#171b1f}
+.sage figure a{display:block;text-decoration:none}
+.sage figcaption{padding:14px 16px;color:#e6ece6;font-size:15px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.sage figcaption b{letter-spacing:.06em}
+.sage figcaption span{color:#9fbf9f}
+.final{background:#f3f7f2;text-align:left}
+.final .contact{margin-top:26px;font-size:clamp(1.25rem,5.4vw,1.8rem);font-weight:800;line-height:1.5}
+.final .contact a{text-decoration:none;border-bottom:3px solid #5aa65a;word-break:break-word}
+footer{padding:26px 0;font-size:13px;color:#6a736b}
+footer a{color:#2f6a2f}
+.r{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.r.in{opacity:1;transform:none}
+@media(min-width:780px){
+ body{font-size:18px}
+ .hero{padding:120px 0 110px}
+ section{padding:96px 0}
+ .problems{grid-template-columns:repeat(3,1fr);column-gap:34px}
+ .cats{grid-template-columns:1fr 1fr;column-gap:48px;row-gap:56px}
+ .facts,.steps{grid-template-columns:repeat(3,1fr);column-gap:34px}
+ .minimum .wrap{display:grid;grid-template-columns:auto 1fr;column-gap:56px;align-items:center}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.r{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
-<header><a class="logo" href="index.html">ALLSEEING IT</a><a class="signup" href="https://research.allseeingit.com/daily/" rel="noopener">Sign up for ALLSEEING Daily</a></header>
-<main>
-<div id="hero-logo-slot" aria-hidden="true"></div>
-<h1><span aria-hidden="true">Who controls your<span class="slot"><span class="reel" id="reel"></span></span></span><span class="sr">Who controls your future?</span></h1>
-<p class="do" id="do">You do.</p>
-<div class="stage">
- <div class="code" id="code" aria-hidden="true"><pre id="pre"></pre><p class="resolve" id="resolve">Open source. Farmer owned.</p></div>
- <div class="brand" id="brand">
-  <p class="sage">SAGE</p>
-  <p class="by">by ALLSEEING RESEARCH SERVICES</p>
-  <a class="btn" href="https://research.allseeingit.com/" rel="noopener">Open SAGE</a>
+<header><div class="wrap">
+ <a class="logo" href="/">ALLSEEING <span>IT</span></a>
+ <a class="hcta" href="tel:+16606191936">660.619.1936</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+ <p class="eyebrow">Sedalia · Pettis County · Johnson County, MO</p>
+ <h1>Wi-Fi that reaches the barn. Data you can <em>actually see.</em></h1>
+ <p class="lead">Rural IT and farm technology, set up and supported locally.</p>
+ <div class="ctas"><a class="btn" href="tel:+16606191936">Call 660.619.1936</a><a class="btn line" href="mailto:research@allseeingit.com">Email us</a></div>
+ <p class="note">Small jobs welcome. $250 minimum.</p>
+ <a class="signup" href="https://research.allseeingit.com/daily/" rel="noopener">Sign up for ALLSEEING Daily</a>
+</div></div>
+
+<section id="problem"><div class="wrap">
+ <p class="k r">Sound familiar?</p>
+ <h2 class="r">Internet stops at the house. Everything else is guesswork.</h2>
+ <div class="problems">
+  <div class="r"><b>Dead zones in the barn and shop</b><span>New service lands at the house, but cameras, gates and the shop office are out of reach.</span></div>
+  <div class="r"><b>No one takes the small job</b><span>Bigger shops set high minimums. A single drop or one stubborn router isn't worth their trip.</span></div>
+  <div class="r"><b>Data you can't see</b><span>Soil, water, weather and herd information sits in separate apps, or nowhere at all.</span></div>
  </div>
-</div>
-<div class="ctl"><button type="button" id="skip">skip</button><button type="button" id="replay" hidden>replay</button></div>
-<a class="about" href="about.html">About ALLSEEING IT</a>
-<p class="sr" aria-live="polite" id="live"></p>
-</main>
-<footer>© 2026 ALLSEEING IT · <a href="mailto:research@allseeingit.com">research@allseeingit.com</a></footer>
+</div></section>
+
+<section id="minimum" class="minimum"><div class="wrap">
+ <p class="big r">$250</p>
+ <div class="r">
+  <p class="k">Minimum job</p>
+  <h2>Small jobs are our jobs.</h2>
+  <p class="sub">One cable run, one access point, one fix. Start small, and add a monthly plan only if it makes sense for you.</p>
+ </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+ <p class="k r">Services</p>
+ <h2 class="r">Everything connected, from the office to the far pasture.</h2>
+ <div class="cats">
+  <div class="cat r">
+   <h3>Farm and rural connectivity</h3>
+   <p class="benefit">Strong, reliable signal in every building you work in.</p>
+   <ul>
+    <li>Farm and rural Wi-Fi across outbuildings</li>
+    <li>Building-to-building wireless links</li>
+    <li>Security cameras for barns, shops and gates</li>
+    <li>Network data cabling (Cat6)</li>
+    <li>Switches and servers</li>
+   </ul>
+  </div>
+  <div class="cat r">
+   <h3>IT support for small businesses</h3>
+   <p class="benefit">A local tech you can call, for offices without IT staff.</p>
+   <ul>
+    <li>Repair, setup and break-fix support</li>
+    <li>Monthly managed IT plans</li>
+    <li>Backups, updates and firewalls</li>
+    <li>Help buying, assembling and setting up equipment</li>
+   </ul>
+   <small>For farm offices, small businesses, churches and schools.</small>
+  </div>
+  <div class="cat r">
+   <h3>Grok Bot AI assistant setup</h3>
+   <p class="benefit">Put an AI assistant to work on your business's routine tasks.</p>
+   <ul>
+    <li>Assistant setup and tool connections</li>
+    <li>Custom routines for your workflow</li>
+    <li>Staff training</li>
+    <li>Ongoing monthly support</li>
+   </ul>
+   <small>You buy your own Grok seats directly from xAI. We are not a reseller.</small>
+  </div>
+  <div class="cat r">
+   <h3>Farm sensors, weather and drones</h3>
+   <p class="benefit">See soil, water, weather and fields at a glance.</p>
+   <ul>
+    <li>Soil moisture and temperature sensors</li>
+    <li>Stock tank water-level sensors</li>
+    <li>On-farm weather stations</li>
+    <li>Drone mapping flights, 3D maps and vegetation layers</li>
+    <li>Everything connected into SAGE</li>
+   </ul>
+  </div>
+  <div class="cat r">
+   <h3>Training</h3>
+   <p class="benefit">Know how to run your own gear.</p>
+   <ul>
+    <li>Instructor and student training on drones, sensors and SAGE</li>
+   </ul>
+  </div>
+ </div>
+ <div class="ctas r"><a class="btn ink" href="tel:+16606191936">Call 660.619.1936</a><a class="btn ink line" href="mailto:research@allseeingit.com">research@allseeingit.com</a></div>
+</div></section>
+
+<section id="local" class="local"><div class="wrap">
+ <p class="k r" style="color:#8fcf8f">Why ALLSEEING</p>
+ <h2 class="r">Local, hands-on, and here when you need us.</h2>
+ <p class="sub r">ALLSEEING IT is based in the Sedalia area and founded by Scott Abney. We set up, connect and support the sensors, drones and software, and stay close by afterward.</p>
+ <div class="facts">
+  <div class="r"><b>Close by</b>Serving Sedalia, Pettis County and Johnson County.</div>
+  <div class="r"><b>Hands-on</b>We install it, train you on it, and support it.</div>
+  <div class="r"><b>Your data stays yours</b>SAGE is open source under the Apache-2.0 license.</div>
+ </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+ <p class="k r">How it works</p>
+ <h2 class="r">Three steps from call to connected.</h2>
+ <div class="steps">
+  <div class="r"><b>Call or email</b>Tell us what isn't working or what you want to see.</div>
+  <div class="r"><b>We come out</b>A walk-through on site, and a clear price before any work.</div>
+  <div class="r"><b>It just works</b>We install and test, then show you how to use it.</div>
+ </div>
+</div></section>
+
+<section id="sage" class="sage"><div class="wrap">
+ <p class="k r">SAGE</p>
+ <h2 class="r">Your whole farm in one view.</h2>
+ <p class="sub r">SAGE layers drone maps, paddocks, livestock and sensors into one screen. Here is the live Elm Spring research plot.</p>
+ <figure class="r"><a href="https://research.allseeingit.com/" target="_blank" rel="noopener"><img src="/img/sage-elm-spring-live.jpg" alt="Live SAGE view of the Elm Spring research plot: drone imagery with paddocks P0 (4.71 acres), P2 (3.86 acres) and P3 (4.64 acres) and a herd of 19 goats" width="848" height="533"><figcaption><b>SAGE by ALLSEEING RESEARCH SERVICES</b><span>Open research.allseeingit.com &rarr;</span></figcaption></a></figure>
+</div></section>
+
+<section id="contact" class="final"><div class="wrap">
+ <p class="k r">Get started</p>
+ <h2 class="r">Let's get your farm or office connected.</h2>
+ <p class="contact r"><a href="tel:+16606191936">660.619.1936</a><br><a href="mailto:research@allseeingit.com">research@allseeingit.com</a></p>
+</div></section>
+
+<footer><div class="wrap">&copy; 2026 ALLSEEING IT</div></footer>
 <script>
-(function(){
-var W=["data","network","internet","software","cameras","sensors","drone","tractor","repairs","gates","fences","collars","cattle","pasture","water","soil","seeds","harvest","prices","power","land","food","future"];
-var n=W.length,$=function(i){return document.getElementById(i)};
-var reel=$('reel'),doE=$('do'),code=$('code'),pre=$('pre'),res=$('resolve'),brand=$('brand'),skip=$('skip'),rep=$('replay'),live=$('live');
-W.forEach(function(x){var e=document.createElement('span');e.textContent=x+'?';reel.appendChild(e);});
-var LINES=["$ git clone sage","license: Apache-2.0","owner: farmer","data: stays on your farm","big_tech_access: none"];
-var TXT=LINES.join("\n");
-// retime4: 6 words ~0.39s, 3 words ~0.28s, then 75->47ms; SAGE ~4.17s ( to SAGE): hold 'data' 1.2s; 3 words 400ms, then ease-in (t^1.3) ramp to 95ms; You do +0.3s; SAGE +0.6s
-var HOLD=310,DW=[0,310,310,310,310,310,210,210,210],SPIN=0,steps=[],s=0;
-for(var k=0;k<n-1;k++){var L=1,d=k<L?75:75-28*Math.pow((k-L+1)/(n-1-L),1.3);steps.push(d);SPIN+=d+(DW[k]||0);}
-var FIN=HOLD+SPIN;
-var raf,timers=[],t0;
-function at(ms,f){timers.push(setTimeout(f,ms));}
-function setReel(p,blur){reel.style.transform='translateY('+(-p*1.2)+'em)';reel.style.filter=blur?'blur('+blur.toFixed(2)+'px)':'none';}
-function spin(ts){
- if(!t0)t0=ts;var el=ts-t0-HOLD;
- if(el<0){raf=requestAnimationFrame(spin);return;}
- if(el>=SPIN){setReel(n-1,0);reel.lastChild.classList.add('glow');return;}
- var i=0;while(i<n-2&&el>=steps[i]+(DW[i]||0)){el-=steps[i]+(DW[i]||0);i++;}
- var f=Math.max(0,Math.min(1,(el-(DW[i]||0))/steps[i]));
- f=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;
- setReel(i+f,Math.min(2.2,Math.max(0,(160-steps[i])/40))*Math.sin(Math.PI*f));
- raf=requestAnimationFrame(spin);
-}
-function end(){
- cancelAnimationFrame(raf);timers.forEach(clearTimeout);timers=[];
- setReel(n-1,0);doE.classList.add('on');code.classList.remove('on');pre.className='';
- pre.textContent=TXT;res.classList.add('on');brand.classList.add('on');
- skip.hidden=true;rep.hidden=false;live.textContent='You do. SAGE by ALLSEEING RESEARCH SERVICES.';
-}
-function play(){
- end();t0=0;setReel(0,0);doE.classList.remove('on');res.classList.remove('on');brand.classList.remove('on');
- pre.textContent='';skip.hidden=false;rep.hidden=true;live.textContent='';
- raf=requestAnimationFrame(spin);
- at(FIN+150,function(){doE.classList.add('on');live.textContent='Who controls your future? You do.';});
- at(FIN+300,function(){brand.classList.add('on');skip.hidden=true;});
- at(FIN+1400,function(){rep.hidden=false;pre.className='';live.textContent='SAGE by ALLSEEING RESEARCH SERVICES.';});
-}
-skip.addEventListener('click',end);rep.addEventListener('click',play);
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){end();rep.hidden=true;}else play();
-})();
+(function(){var els=document.querySelectorAll('.r');
+if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(e){io.observe(e)});})();
 </script>
 </body>
 </html>
