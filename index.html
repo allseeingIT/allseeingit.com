@@ -3,14 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ALLSEEING RESEARCH SERVICES</title>
+<title>ALLSEEING IT</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="description" content="Who controls your future? You do. SAGE is open farm software from ALLSEEING RESEARCH SERVICES.">
+<meta name="description" content="Who controls your future? You do. ALLSEEING IT. SAGE is open farm software from ALLSEEING RESEARCH SERVICES.">
+<meta property="og:site_name" content="ALLSEEING IT">
+<meta property="og:title" content="ALLSEEING IT">
+<meta property="og:description" content="Who controls your future? You do. ALLSEEING IT. SAGE is open farm software from ALLSEEING RESEARCH SERVICES.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.allseeingit.com/">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#000;min-height:100vh;display:flex;flex-direction:column}
-main{flex:1;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px}
+header{padding:16px 20px;text-align:center;border-bottom:1px solid #000}
+.logo{color:#000;font-weight:800;letter-spacing:.14em;text-decoration:none;font-size:15px}
+main{flex:1;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;justify-content:safe center;align-items:center;text-align:center;padding:40px 20px}
 h1{font-size:clamp(2.1rem,9vw,4.5rem);line-height:1.1;font-weight:700;letter-spacing:-.02em}
 .slot{display:block;height:1.2em;overflow:hidden;position:relative}
 .reel{display:block;will-change:transform}
@@ -39,6 +46,10 @@ a:focus-visible,button:focus-visible{outline:3px solid #000;outline-offset:3px}
 .ctl{margin-top:14px;height:1.4em}
 .ctl button{font:inherit;font-size:.85rem;color:#555;background:none;border:0;text-decoration:underline;cursor:pointer}
 .about{margin-top:12px;font-size:.95rem;color:#000}
+.daily{margin-top:28px;width:min(100%,440px)}
+.daily a{display:block;padding:16px 18px;border:1px solid #000;color:#000;text-decoration:none}
+.daily-name{display:block;font-weight:800;font-size:1.15rem;text-decoration:underline;text-underline-offset:3px}
+.daily-note{display:block;margin-top:4px;font-size:.95rem}
 footer{text-align:center;padding:22px 20px;font-size:.85rem;border-top:1px solid #000}
 footer a{color:#000}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -54,6 +65,7 @@ footer a{color:#000}
 </style>
 </head>
 <body>
+<header><a class="logo" href="index.html">ALLSEEING IT</a></header>
 <main>
 <div id="hero-logo-slot" aria-hidden="true"></div>
 <h1><span aria-hidden="true">Who controls your<span class="slot"><span class="reel" id="reel"></span></span></span><span class="sr">Who controls your future?</span></h1>
@@ -67,10 +79,13 @@ footer a{color:#000}
  </div>
 </div>
 <div class="ctl"><button type="button" id="skip">skip</button><button type="button" id="replay" hidden>replay</button></div>
-<a class="about" href="about.html">About ALLSEEING RESEARCH SERVICES</a>
+<section class="daily">
+ <a href="https://research.allseeingit.com/daily/" rel="noopener"><span class="daily-name">ALLSEEING Daily</span><span class="daily-note">A free morning paper.</span></a>
+</section>
+<a class="about" href="about.html">About ALLSEEING IT</a>
 <p class="sr" aria-live="polite" id="live"></p>
 </main>
-<footer>© 2026 ALLSEEING RESEARCH SERVICES · <a href="mailto:research@allseeingit.com">research@allseeingit.com</a></footer>
+<footer>© 2026 ALLSEEING IT · <a href="https://research.allseeingit.com/daily/" rel="noopener">ALLSEEING Daily</a> · <a href="mailto:research@allseeingit.com">research@allseeingit.com</a></footer>
 <script>
 (function(){
 var W=["data","network","internet","software","cameras","sensors","drone","tractor","repairs","gates","fences","collars","cattle","pasture","water","soil","seeds","harvest","prices","power","land","food","future"];
